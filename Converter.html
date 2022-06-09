@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <Title>Converter</Title>
+  </head>
+  <body>
+    <input id="measurement" type="text" placeholder="Input digit">
+    <button onclick="convertToCm()">Convert to cm</button>
+    <button onclick="convertToInch()">Convert to inch</button>
+    <div style="height: 40px; width: 200px; text-align: center; padding-top: 8px;" id="result"></div>
+    <button onclick="Clear()">CLEAR</button>
+    <script>
+      const measurement = document.getElementById('measurement')
+      function convertToCm(){
+        const value = measurement.value;
+        // value is a string and strings can't be multiplied. We need
+        // to convert it into a number before we can multiply it.
+        const convertedValue = +value * 2.54;
+
+        const element = document.createElement('div');
+        element.innerText = convertedValue;
+        result.appendChild(element);
+      }
+      function convertToInch(){
+        const value = measurement.value;
+        // value is a string and strings can't be multiplied. We need
+        // to convert it into a number before we can multiply it.
+        const convertedValue = +value / 2.54;
+
+        const element = document.createElement('div');
+        element.innerText = convertedValue;
+        result.appendChild(element);
+      }
+      function Clear(){
+        result.innerHTML= '';
+        measurement.innerText= '';
+      }
+    </script>
+  </body>
+</html>
